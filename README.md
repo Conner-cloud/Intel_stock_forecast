@@ -65,3 +65,16 @@ if _n_ = 5267 then AO = 1;
 else AO = 0.0;
 run;
 ```
+
+Code for the ARIMA plots:
+
+```
+proc arima data=intel_stock;
+identify var=logvolume(1)
+crosscorr=( AO(1) LS(1) );
+estimate p = 5 q = 5 noint
+input=( AO LS )
+method=ml plot;
+outlier id=Date;
+run;
+```
