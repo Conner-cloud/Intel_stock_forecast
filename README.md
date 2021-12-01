@@ -43,7 +43,7 @@ run;
 
 Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked.
 
-<img src="Images/trend_correlation_analysis_plots.png" width="500"  >
+<img src="Images/trend_correlation_analysis_plots.png" width="500"  > <img src="Images/Residual_plots_outliers_ARIMA(5,1,5).png" width="500"  > 
 
 The observation against logvolume(1) plot shows us the effect of taking the first-difference, we can clearly see that the mean is zero and thus we have obtained a stationary time series and can move onto building an ARIMA model. Firstly, I must identify and resolve any outliers; using ``` outlier id=Date; ``` we can identify any outliers by their date. Using this I identified 5 significant outliers:
 
