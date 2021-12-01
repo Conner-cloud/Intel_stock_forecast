@@ -78,3 +78,5 @@ method=ml plot;
 outlier id=Date;
 run;
 ```
+
+<img src="Images/Cross_correlation_plot.png" width="500"  >
