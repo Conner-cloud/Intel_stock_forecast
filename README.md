@@ -48,3 +48,20 @@ Now that I have obtained a time series with constant variance I need to make it 
 The observation against logvolume(1) plot shows us the effect of taking the first-difference, we can clearly see that the mean is zero and thus we have obtained a stationary time series and can move onto building an ARIMA model. Firstly, I must identify and resolve any outliers; using ``` outlier id=Date; ``` we can identify any outliers by their date. Using this I identified 5 significant outliers:
 
 <img src="Images/Outlier_table_1.png" width="500"  >
+
+The code below attempts to resolve the outliers identified:
+```
+data intel_stock;
+set intel_stock;
+if _n_ = 1657 then AO = 1;
+else AO = 0.0;
+if _n_ = 5237 then AO = 1;
+else AO = 0.0;
+if _n_ = 2816 then AO = 1;
+else AO = 0.0;
+if _n_ >= 1720 then LS = 1;
+else LS = 0.0;
+if _n_ = 5267 then AO = 1;
+else AO = 0.0;
+run;
+```
