@@ -28,3 +28,19 @@ run;
 ```
 
 <img src="Images/Plot_logvolume.png" width="500"  >
+
+The plot shows a how the variance has been made constant by taking the logarithm of volume. We can also see two significant outliers that are resolved later. The plot however, shows that there is a non-zero mean.
+
+### Building and optimising a ARIMA model
+
+```
+proc arima data = intel_stock plots = all;
+identify var= logvolume(1);
+estimate p = 5 q = 5;
+outlier id=Date;
+run;
+```
+
+Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked.
+
+<img src="Images/trend_correlation_analysis_plots.png" width="500"  >
