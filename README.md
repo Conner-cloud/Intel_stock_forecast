@@ -41,7 +41,7 @@ outlier id=Date;
 run;
 ```
 
-Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked.
+Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked. Using trial and error I found the best model with the lowest AIC was an ARIMA(5,1,5) model; residual correlation analysis suggests that model is a good fit for the data with now significant residuals in either the ACF or PACF plots. However, the model could be improved by identifying and resolving outliers.
 
 <img src="Images/trend_correlation_analysis_plots.png" width="500"  > <img src="Images/Residual_plots_outliers_ARIMA(5,1,5).png" width="500"  > 
 
