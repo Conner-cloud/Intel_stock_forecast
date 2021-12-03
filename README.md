@@ -120,4 +120,7 @@ run;
 
 The plot shows the forecast for the next 5 years for Intel's volume of stock. I made a cut off point for any data before 2018 so that the forecast was more easily readable. From this forecast investors will easily be able to make a decision on buying stock, it is unlikely that the volume will decrease over the next 5 years. Infact, the 95% Confidence Limits suggest that on average the volume is more likely to be higher than forecasted than lower. The forecasts can also be used to predict the amount of storage needed, it is likely that Intel will need room for atleast 20,000,000 units whilst at most needing room for 75,000,000 units.
 
+### [Code](https://github.com/Conner-cloud/Conner_Projects/blob/main/Intel_forecast_project/Code/Intel_stocks.sas)
+# [Back](https://conner-cloud.github.io/Conner_Projects/)
+
 
