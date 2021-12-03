@@ -90,3 +90,19 @@ Not much has changed in these plots compared to the previous model. Distribution
 
 ### Forecasting and conclusions
 <img src="Images/Forecast_only_plot.png" width="500"  > <img src="Images/logvolume_forecast_all_plot.png" width="500"  >
+
+These plots show the forecast for the logvolume of the next 5 years. We see a small incline and then the curve flattens out, this is typical of an ARIMA model with no seasonality and the first-difference being taken. However, we cannot produce this graph to any clients or investors as it is still not a good visualisation of the forecast as we have just forecasted the logvolume, we do not care about the forecast for logvolume we wanted the forecast for the volume of stock. Hence, we alter our code and remove the logarithm by finding the exponential of our forecasted data.
+
+```
+data intel_forecast;
+set forecast;
+Volume = exp(logvolume);
+l95 = exp(l95);
+u95 = exp(u95);
+forecast = exp(forecast + std*std/2);
+run;
+```
+
+Now that the forecasts are in terms of the numbers of volume we were initially dealing with we can finally get a visualisation of the forecast with our original dataset. Using the code below produces a plot of the forecast with the original dataset.
+
+<img src="Images/Volume_forecast_all_plot.png" width="500"  >
