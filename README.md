@@ -103,6 +103,21 @@ forecast = exp(forecast + std*std/2);
 run;
 ```
 
-Now that the forecasts are in terms of the numbers of volume we were initially dealing with we can finally get a visualisation of the forecast with our original dataset. Using the code below produces a plot of the forecast with the original dataset.
+Now that the forecasts are in terms of the numbers of volume I was initially dealing with we can finally get a visualisation of the forecast with our original dataset. Using the code below produces a plot of the forecast with the original dataset.
+
+```
+proc sgplot data=intel_forecast;
+where date >= '1JAN18'D;
+band Upper=u95 Lower=l95 x=Date
+/ legendLabel="95% Confidence Limits" ;
+scatter x=Date y=Volume;
+series x=Date y=forecast
+/ legendlabel="Forecast of Volume for the next 5 years";
+run;
+```
 
 <img src="Images/Volume_forecast_all_plot.png" width="500"  >
+
+The plot shows the forecast for the next 5 years for Intel's volume of stock. I made a cut off point for any data before 2018 so that the forecast was more easily readable. From this forecast investors will easily be able to make a decision on buying stock, it is unlikely that the volume will decrease over the next 5 years. Infact, the 95% Confidence Limits suggest that on average the volume is more likely to be higher than forecasted than lower. The forecasts can also be used to predict the amount of storage needed, it is likely that Intel will need room for atleast 20,000,000 units whilst at most needing room for 75,000,000 units.
+
+
