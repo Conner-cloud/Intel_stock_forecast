@@ -41,7 +41,7 @@ outlier id=Date;
 run;
 ```
 
-Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked. Using trial and error I found the best model with the lowest AIC was an ARIMA(5,1,5) model; residual correlation analysis suggests that model is a good fit for the data with now significant residuals in either the ACF or PACF plots. However, the model could be improved by identifying and resolving outliers.
+Now that I have obtained a time series with constant variance I need to make it stationary and that I need the mean of the model to be zero. We can do this by taking the first-difference of the variable logvolume. I then obtained the ARIMA plots using the code above to check if taking the first-difference worked. Using trial and error I found the best model with the lowest AIC was an ARIMA(5,1,5) model (AIC = 9392.761); residual correlation analysis suggests that model is a good fit for the data with now significant residuals in either the ACF or PACF plots. However, the model could be improved by identifying and resolving outliers.
 
 <img src="Images/trend_correlation_analysis_plots.png" width="500"  > <img src="Images/Residual_plots_outliers_ARIMA(5,1,5).png" width="500"  > 
 
@@ -82,6 +82,11 @@ run;
 <img src="Images/Cross_correlation_plot.png" width="500"  > <img src="Images/Residual_plot.png" width="500"  >
 <img src="Images/Residual_plots_NOoutliers_ARIMA(5,1,5).png" width="500"  >
 
-
+With the outliers resolved the model is already looking better. The AIC of this model is lower than the model with the outliers present (AIC = 9266.804), and the plot of white noise against lag shows overall a lower white noise probability suggesting that this model is better. Next I looked at the residual normality diagnostics.
 
 <img src="Images/Residual_normality_plots_NOoutliers.png" width="600"  >
+
+Not much has changed in these plots compared to the previous model. Distribution of residuals seems to follow normal distribution quite nicely and the QQ-Plot shows us must points lay on the diagonal line suggesting normality. Since we have now optimised our model and obtained the lowest AIC possible we can now forecast accurately.
+
+### Forecasting and conclusions
+<img src="Images/Forecast_only_plot.png" width="500"  > <img src="Images/logvolume_forecast_all_plot.png" width="500"  >
