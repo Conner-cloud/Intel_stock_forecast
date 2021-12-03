@@ -80,4 +80,4 @@ run;
 ```
 
 <img src="Images/Cross_correlation_plot.png" width="400"  > <img src="Images/Residual_plot.png" width="400"  >
-<img src="Images/Residual_plots_NOoutliers_ARIMA(5,1,5).png" width="400"  > <img src="Images/Residual_normality_plots_NOoutliers.png" width="500"  >
+<img src="Images/Residual_plots_NOoutliers_ARIMA(5,1,5).png" width="400"  > <img src="Images/Residual_normality_plots_NOoutliers.png" width="600"  >
